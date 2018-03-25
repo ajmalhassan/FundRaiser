@@ -1,0 +1,47 @@
+<div class="animated fadeIn mt-5" ng-controller="NewProjectController">
+    <h2></h2>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Start a project</strong>
+                </div>
+                <div class="card-body">
+                    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal ">
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Title</label>
+                            <div class="col-md-9">
+                                <input type="text" id="text-input" name="text-input" class="form-control" ng-model="newProject.title" placeholder="Title of your project">
+                                <span class="help-block">Give your project a catchy title</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="email-input">Description</label>
+                            <div class="col-md-9">
+                                <input type="text" id="email-input" name="email-input" class="form-control" ng-model="newProject.description" placeholder="Description of your project">
+                                <span class="help-block">Keep it short and sweet</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="password-input">Required fund</label>
+                            <div class="col-md-9">
+                                    <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">₹</span>
+                                            </div>
+                                            <input type="text" id="password-input" name="password-input" class="form-control" ng-model="newProject.required" placeholder="How much fund do you need?">
+                                        </div>
+                                <span class="help-block">Tell your prospective funders how much you need</span>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="card-footer text-right">
+                    <button type="submit" ng-click="createNewProject()" class="btn btn-primary">
+                        <i class="fa fa-dot-circle-o"></i> Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

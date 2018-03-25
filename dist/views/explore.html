@@ -1,0 +1,52 @@
+<div class="animated fadeIn mt-5" ng-controller="ExploreController">
+    <h2>Explore projects</h2>
+    <div class="row">
+        <div class="col-lg-4" ng-if="!projectList.error" ng-repeat="project in projectList.data">
+            <div class="card">
+                <div class="card-header font-weight-bold">
+                    {{project.title}}
+                    <small>by {{getUsername(project.uid)}}</small>
+                </div>
+                <div class="card-body">
+                    {{project.description}}
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                            Required:
+                            <b>₹ {{project.required}}</b>
+                        </div>
+                        <div class="col-md-6">
+                            Received:
+                            <b>₹ {{project.received}}</b>
+                        </div>
+                        <div class="col-md-6">
+                                Backed by:
+                                <b>{{project.backers.length}}</b> people
+                            </div>
+                        <hr>
+                        <div class="col-md-12">
+                            posted on:
+                            <b>{{project.posted | date: 'medium'}}</b>
+                        </div>
+                        <div class="col-md-12 mt-3">
+
+                            <div class="input-group">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">₹</span>
+                                </div>
+                                <input type="text" class="form-control" ng-model="amount" placeholder="Amount" aria-label="Amount" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button" ng-click="sendEth($index, amount)">Fund this project</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 text-center" ng-if="projectList.error">
+            <h3>No projects to show</h3>
+        </div>
+    </div>
+</div>
